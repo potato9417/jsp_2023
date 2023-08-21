@@ -18,7 +18,7 @@
 <%
 	// scriptlet(스크립트릿)
 	// JEE (JSE+JEE)
-	String str2 = "jsp";
+	String str2 = "jsp 한글";
 	System.out.println("str1 : "+str2); // 콘솔창 
 	// JSP 내장(기본,built-in) 객체(인스턴스)
 	// println : html => 줄바꿈(개행) 기능이없어서 따로 입력해줘야함
