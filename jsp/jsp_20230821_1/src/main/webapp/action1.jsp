@@ -12,9 +12,8 @@
 	/* String id = request.getParameter("id");
 	String pw = request.getParameter("pw"); */
 	
-	// 공백, null 대응 방법
+	// 공백, null 대응 방법 => 에러 메시징
 	// 삼항연산자 사용
-	String msg = "";
 	String id = request.getParameter("id")==null ? "id를 입력하세요" :
 				request.getParameter("id").trim().equals("")==true ? "id를 입력하세요" :
 				request.getParameter("id");
@@ -27,6 +26,7 @@
 	<hr>
 <%
 	// if문 사용
+	String msg = "";
 	if(id.equals("id를 입력하세요") || pw.equals("pw를 입력하세요")){
 		msg = id + "<br>" + pw;
 		out.println(msg);
