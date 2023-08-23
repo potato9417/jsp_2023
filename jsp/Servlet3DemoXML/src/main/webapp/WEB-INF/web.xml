@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- servlet 4.0 : JEE -->
+<!-- <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" 
+	id="WebApp_ID" version="4.0"> -->
+<!-- servlet 6.0 : Jakarta EE -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+	id="WebApp_ID" version="6.0">
+
+	<display-name>Servlet3DemoXML</display-name>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<description></description>
+		<display-name>DemoServlet</display-name>
+		<servlet-name>DemoServlet</servlet-name>
+		<servlet-class>servlet.DemoServlet</servlet-class>
+		<init-param>
+			<description>서블릿 버전</description>
+			<param-name>demoParam</param-name>
+			<param-value>4.0</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>DemoServlet</servlet-name>
+		<url-pattern>/DemoServlet</url-pattern>
+		<url-pattern>/servlet.do</url-pattern>
+	</servlet-mapping>
+
+</web-app>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+<meta charset="UTF-8">
+<title>ajax demo</title>
+<script>
+	window.onload = () => {
+		
+		let btn = document.getElementById("btn"); // 버튼
+		
+		let id = document.getElementById("id"); // 아이디
+		
+		// 전송 버튼 클릭시 이벤트 처리
+		btn.onclick = () => {
+			
+			console.log("클릭");
+			
+			// AJAX XHR(XMLHttpRequest) 객체
+			// https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+			const xhr = new XMLHttpRequest();
+			
+			xhr.onreadystatechange = () => {
+			    
+				/* 
+				   - readyState 상태 값 
+				   : https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+				   
+				   0 : uninitialized - 아직 loading이 시작되지 않았다. 객체가 생성되었지만, 초기화가 되지 않은 상태.
+					   open() 메소드가 호출되지 않음.
+					
+			   	   1: loading - loading 중이며, 객체는 생성되었지만, send() 메소드가 호출되지 않은 상태.
+					
+				   2 : loaded - send() 메소드는 호출되었지만, 상태와 헤더는 아직 사용할 수 없는 상태.
+					
+				   3 : interactive - 충분히 load되었고 사용자가 그것과 상호작용할 수 있다. 
+					   일부 결과값을 구하고자 이 상태에서 responseBody와 responseText 속성을 이용하면 에러가 발생한다.
+					
+				   4 : complete - 완전히 load되었다. responseBody와 responseText 속성을 이용하여 완전한 데이터를 획득할 수 있다.
+				 */
+				 
+				// if (xhr.readyState === 4 && xhr.status === 200) {
+				if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+					
+					console.log("응답 : " + xhr.responseText);
+					
+					if (xhr.responseText.trim() == 'true') {
+						
+						alert("사용가");	
+									
+					} else {
+						
+						alert("사용 불가");
+					} //					
+					
+					
+			    } // 200
+			    
+			} //
+			
+			// GET 방식으로 id 인자와 더불어서 서버측에 전송
+			xhr.open("GET", "/ajax_ex1/check_demo.jsp?id="+id.value, true);// 
+			xhr.send();
+			
+		} // onclick ...
+		
+	} // onload...
+</script>
+</head>
+<body>
+
+	<input type="text" id="id" name="id" placeholder="아이디 입력">
+	<button type="button" id="btn">전송</button>
+	
+</body>
+</html>
